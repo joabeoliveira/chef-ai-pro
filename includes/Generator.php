@@ -23,7 +23,7 @@ class Generator {
         }
 
         // Pega as chaves de API salvas
-        $api_options = get_option('chef_ai_pro_api_settings');
+        $api_options = get_option('chef_ai_pro_api_settings', []);
         $llm_api_key = isset($api_options['llm_api_key']) ? $api_options['llm_api_key'] : '';
 
         if (empty($llm_api_key)) {
@@ -241,4 +241,5 @@ class Generator {
         return new \WP_Error('api_format_error', __('Formato de resposta inesperado da API.', 'chef-ai-pro'));
     }
 }
+
 
