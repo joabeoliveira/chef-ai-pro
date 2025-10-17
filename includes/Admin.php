@@ -66,7 +66,7 @@ class Admin {
     // Funções de Renderização de Campos
     public function render_text_field($args) {
         $option_name = 'chef_ai_pro_api_settings';
-        $options = get_option($option_name);
+        $options = get_option($option_name, []);
         $value = isset($options[$args['id']]) ? $options[$args['id']] : '';
         $type = isset($args['type']) ? $args['type'] : 'text';
         echo "<input type='{$type}' id='{$args['id']}' name='{$option_name}[{$args['id']}]' value='{$value}' class='regular-text'>";
@@ -74,7 +74,7 @@ class Admin {
 
     public function render_color_field($args) {
         $option_name = 'chef_ai_pro_frontend_settings';
-        $options = get_option($option_name);
+       $options = get_option($option_name, []);
         $value = isset($options[$args['id']]) ? $options[$args['id']] : '#0073aa';
         echo "<input type='color' id='{$args['id']}' name='{$option_name}[{$args['id']}]' value='{$value}'>";
     }
@@ -261,4 +261,5 @@ class Admin {
         <?php
     }
 }
+
 
